@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'FPGA_clk'
+Slack : -4.061
+TNS   : -109.645
+
+Type  : Slow 1200mV 85C Model Setup 'clk_divider:clk_divisor_1|clk_div'
+Slack : -0.339
+TNS   : -0.711
+
+Type  : Slow 1200mV 85C Model Hold 'clk_divider:clk_divisor_1|clk_div'
+Slack : 0.453
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'FPGA_clk'
+Slack : 0.761
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FPGA_clk'
+Slack : -3.000
+TNS   : -52.071
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_divider:clk_divisor_1|clk_div'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Slow 1200mV 0C Model Setup 'FPGA_clk'
+Slack : -3.758
+TNS   : -100.766
+
+Type  : Slow 1200mV 0C Model Setup 'clk_divider:clk_divisor_1|clk_div'
+Slack : -0.207
+TNS   : -0.413
+
+Type  : Slow 1200mV 0C Model Hold 'clk_divider:clk_divisor_1|clk_div'
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'FPGA_clk'
+Slack : 0.705
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FPGA_clk'
+Slack : -3.000
+TNS   : -52.071
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_divider:clk_divisor_1|clk_div'
+Slack : -1.487
+TNS   : -5.948
+
+Type  : Fast 1200mV 0C Model Setup 'FPGA_clk'
+Slack : -1.180
+TNS   : -25.578
+
+Type  : Fast 1200mV 0C Model Setup 'clk_divider:clk_divisor_1|clk_div'
+Slack : 0.412
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk_divider:clk_divisor_1|clk_div'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'FPGA_clk'
+Slack : 0.302
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FPGA_clk'
+Slack : -3.000
+TNS   : -38.129
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_divider:clk_divisor_1|clk_div'
+Slack : -1.000
+TNS   : -4.000
+
+------------------------------------------------------------

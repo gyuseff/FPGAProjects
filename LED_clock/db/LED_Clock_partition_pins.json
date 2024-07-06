@@ -1,0 +1,45 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED_7Seg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7Seg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7Seg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7Seg[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7Seg[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7Seg[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_7Seg[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
