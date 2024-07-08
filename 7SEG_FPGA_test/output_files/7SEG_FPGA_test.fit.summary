@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sun Jul  7 16:45:35 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : 7SEG_FPGA_test
+Top-level Entity Name : SEG7_Controller_testbench
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 204 / 6,272 ( 3 % )
+    Total combinational functions : 199 / 6,272 ( 3 % )
+    Dedicated logic registers : 115 / 6,272 ( 2 % )
+Total registers : 115
+Total pins : 16 / 92 ( 17 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

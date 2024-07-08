@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Jul  7 16:45:31 2024
+Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+Revision Name : 7SEG_FPGA_test
+Top-level Entity Name : SEG7_Controller_testbench
+Family : Cyclone IV E
+Total logic elements : 220
+    Total combinational functions : 199
+    Dedicated logic registers : 115
+Total registers : 115
+Total pins : 16
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

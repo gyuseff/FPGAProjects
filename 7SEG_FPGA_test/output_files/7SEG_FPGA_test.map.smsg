@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at SEG7_Controller_testbench.sv(82): always construct contains both blocking and non-blocking assignments File: C:/Users/gmyus/OneDrive/Documentos/VSCodeRepositories/FPGAProjects/7SEG_FPGA_test/SEG7_Controller_testbench.sv Line: 82

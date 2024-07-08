@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED_segments[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_segments[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_segments[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_segments[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_segments[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_segments[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_segments[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_en[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_en[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_en[2]",
+					"strict" : false
+				},
+				{
+					"name" : "LED_en[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "FPGA_clk",
+					"strict" : false
+				},
+				{
+					"name" : "decr_btn",
+					"strict" : false
+				},
+				{
+					"name" : "incr_btn",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
