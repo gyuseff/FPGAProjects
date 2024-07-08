@@ -16,7 +16,7 @@ module clk_divider #(parameter TARGET_FREQ = 25_000_000, FPGA_FREQ = 50_000_000)
 			end
 			else begin
 				counter <= counter + 1;
-				if (counter >= target_counter-1) begin
+				if (counter == target_counter) begin
 					clk_div <= !clk_div;
 					counter <= 32'b0;
 				end
