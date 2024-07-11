@@ -1,8 +1,4 @@
-/*
-
-    The exercise consis in creating a 2-bit greater than circuit. Then use that module to create a 4-bit greater then circuit.
-
-*/
+// Exercise: Create a 2 bit greater than comparator, then use it to create a 4 bit greater than comparator
 
 module GT_2bits (
     input logic [1:0] A,

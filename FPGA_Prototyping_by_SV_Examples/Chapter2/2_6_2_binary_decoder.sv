@@ -1,3 +1,5 @@
+// Exercise: Create a 2 to 4 Decoder. Then use it to create a 3 to 8 and a 4 to 16 decoders.
+
 
 module DECODER_4_16(
     input logic en,
