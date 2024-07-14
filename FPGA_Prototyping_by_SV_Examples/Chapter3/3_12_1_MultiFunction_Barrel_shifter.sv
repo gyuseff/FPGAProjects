@@ -20,14 +20,14 @@ module BarrelShifter_1 (
     end
 
     genvar i;
-    generate 
-        for(i = 1; i < 4; i=i+1) begin
+    generate
+        for(i = 1; i < 4; i=i+1) begin : right_logic
             assign out_right[i] = amt[i-1] ? {out_right[i-1][2**(i-1):0], out_right[i-1][7:2**(i-1)]} : out_right[i-1];
         end    
     endgenerate
 
     generate
-        for(i = 1; i < 4; i++) begin
+        for(i = 1; i < 4; i++) begin : left_logic
             assign out_left[i] = amt[i-1] ?  {out_left[i-1][7-2**(i-1):0], out_left[i-1][7:7-2**(i-1)+1]} : out_left[i-1];
         end    
     endgenerate
@@ -50,13 +50,13 @@ module BarrelShifter_2 (
 
     genvar i;
     generate 
-        for(i = 1; i < 4; i=i+1) begin
+        for(i = 1; i < 4; i=i+1) begin : right_logic
             assign out_right[i] = amt[i-1] ? {out_right[i-1][2**(i-1):0], out_right[i-1][7:2**(i-1)]} : out_right[i-1];
         end    
     endgenerate
 
     generate
-        for(i = 0; i < 8; i++) begin
+        for(i = 0; i < 8; i++) begin : inv_logic
             assign inverted_in[i] = in[7-i];
             assign inverted_out[i] = out_right[3][7-i];
         end
