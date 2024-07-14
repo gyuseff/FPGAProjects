@@ -1,6 +1,6 @@
 `include "3_12_1_MultiFunction_Barrel_shifter.sv"
 
-module BarrelShifter_1_tb;
+module BarrelShifter_2_tb;
 
 reg [7:0] in;
 wire [2:0] amt;
@@ -11,7 +11,7 @@ reg result;
 
 int i;
 
-BarrelShifter_1 DUT 
+BarrelShifter_2 DUT 
 (
     .in(in),
     .amt(amt),
@@ -21,8 +21,8 @@ BarrelShifter_1 DUT
 
 
 initial begin
-    $dumpfile("BarrelShifter_1.vcd");
-    $dumpvars(0, BarrelShifter_1_tb);
+    $dumpfile("BarrelShifter_2.vcd");
+    $dumpvars(0, BarrelShifter_2_tb);
 end
 
 assign result = (out == expected);
