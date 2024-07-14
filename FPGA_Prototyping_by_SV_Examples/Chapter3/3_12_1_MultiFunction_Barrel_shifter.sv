@@ -68,3 +68,34 @@ module BarrelShifter_2 (
     end
 
 endmodule
+
+module BarrelShifter_2_param #(DATA_WIDTH = 8, SEL_WIDTH = 3)(
+    input logic [DATA_WIDTH-1:0] in,
+    input logic [SEL_WIDTH-1:0] amt,
+    input logic lr, //Switch to control direction (if 1, then rotate left, else rotate right)
+    output logic [DATA_WIDTH-1:0] out
+);
+    
+    logic [DATA_WIDTH-1:0] out_right [SEL_WIDTH+1];
+    logic [DATA_WIDTH-1:0] inverted_in, inverted_out;
+
+    genvar i;
+    generate 
+        for(i = 1; i < SEL_WIDTH+1; i=i+1) begin : right_logic
+            assign out_right[i] = amt[i-1] ? {out_right[i-1][2**(i-1):0], out_right[i-1][DATA_WIDTH-1:2**(i-1)]} : out_right[i-1];
+        end    
+    endgenerate
+
+    generate
+        for(i = 0; i < DATA_WIDTH; i++) begin : inv_logic
+            assign inverted_in[i] = in[DATA_WIDTH-1-i];
+            assign inverted_out[i] = out_right[SEL_WIDTH][DATA_WIDTH-1-i];
+        end
+    endgenerate
+
+    always_comb begin
+        out_right[0] = lr ? inverted_in : in;
+        out = lr ? inverted_out : out_right[SEL_WIDTH];
+    end
+
+endmodule
