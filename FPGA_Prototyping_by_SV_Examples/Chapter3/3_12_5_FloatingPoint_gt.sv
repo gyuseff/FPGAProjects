@@ -2,6 +2,20 @@
 // The floating point representation uses this form {sign, 4-bit exponent, 8-bit magnitude}
 // With that, the number is: (-1)**(sign) * (0.magnitude)**(exponent)
 
+module FloatingPoint_comp (
+    input logic [12:0] A,
+    input logic [12:0] B,
+    output logic gt,
+    output logic lt,
+    output logic eq
+);
+
+    FloatingPoint_gt AgtB(.A(A), .B(B), .gt(gt));
+    FloatingPoint_gt BgtA(.A(B), .B(A), .gt(lt));
+    
+    assign eq = ~gt & ~lt;
+
+endmodule
 
 module FloatingPoint_gt (
     input logic [12:0] A,
