@@ -1,3 +1,10 @@
+// Exercise: Create a BCD increment circuit
+// It takes a 3-digit number in BCD and increases in one 
+// To achieve this I need 3 auxiliar modules: a binary to BCD, a 1-digit BCD adder and a 3-digit BCD adder.
+// The 1-digit BCD adder, just sums 2 BCD bits (plus a carry in), and uses the binary to BCD in order to convert the result
+// Then we use 3 in cascade to do the 3-digit adder
+// Finally, to increment 1, we just use the 3-digit adder to sum the input and 1.
+
 module BCD_increment (
     input logic [11:0] in,
     output logic [11:0] out,

@@ -1,3 +1,11 @@
+// Exercise: Create a Dual Priority Encoder
+// This is a circuit that gives two outputs. 
+// The first is the output of the priority encoder of the input
+// The seconcd output is the output of the priority encoder, not taking the first bit into account
+// To achieve this, we need two 16_4 enconder and one 4_16 decoder
+// The first one will encode the first bit. This will also be connected to the decoder, so the output of the decoder is the priority bit.
+// If we xor the input of the circuit with the outout of the decoder, we will toggle off the priority bit. So if we use that as input to the second encoder, we will have the priority encoder of the second bit.
+
 module DualEncoder_16_4 (
     input logic [15:0] in,
     output logic [3:0] first,
