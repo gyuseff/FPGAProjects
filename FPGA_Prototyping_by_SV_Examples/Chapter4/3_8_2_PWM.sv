@@ -18,7 +18,7 @@ module PWM_generator(
     logic [3:0] pwm_counter;
 
     always_ff@(posedge clk_div_16k, negedge rst) begin
-        if (~rst | (pwm_counter == 4'b1111)) pwm_counter <= 4'b0000;
+        if (!rst) pwm_counter <= 4'b0000;
         else pwm_counter <= pwm_counter + 1'b1;
     end
 
@@ -28,7 +28,7 @@ module PWM_generator(
 endmodule
 
 //First let's create a clock divider to determine the cycle of the PWM
-
+/*
 module clk_divider #(parameter TARGET_FREQ = 25_000_000, FPGA_FREQ = 50_000_000) (input logic clk, rst, output logic clk_div);
 
 	int target_counter = FPGA_FREQ/(2*TARGET_FREQ); //This calculates the target value to the counter to toggle
@@ -50,3 +50,4 @@ module clk_divider #(parameter TARGET_FREQ = 25_000_000, FPGA_FREQ = 50_000_000)
 			end
 		end
 endmodule
+*/
