@@ -36,12 +36,49 @@ module Stopwatch (
         end
     end
 
-    logic c_0, c_1, c_2;
+    // Logic when going up
 
-    BCD_1_digit_sum U_0(.A(bin_0), .B(4'b0000), .carry_in(1'b1), .out(next_bin_0), .carry_out(c_0));
-    BCD_1_digit_sum U_1(.A(bin_1), .B(4'b0000), .carry_in(c_0), .out(next_bin_1), .carry_out(c_1));
-    BCD_1_digit_sum U_2(.A(bin_2), .B(4'b0000), .carry_in(c_1), .out(next_bin_2), .carry_out(c_2));
-    BCD_1_digit_sum U_3(.A(bin_3), .B(4'b0000), .carry_in(c_2), .out(next_bin_3), .carry_out());
+    logic c_0, c_1, c_2;
+    logic [3:0] aux_next_sum_2;
+    logic [3:0] next_sum_0, next_sum_1, next_sum_2, next_sum_3;
+
+    BCD_1_digit_sum U_sum_0(.A(bin_0), .B(4'b0000), .carry_in(1'b1), .out(next_sum_0), .carry_out(c_0));
+    BCD_1_digit_sum U_sum_1(.A(bin_1), .B(4'b0000), .carry_in(c_0), .out(next_sum_1), .carry_out(c_1));
+    BCD_1_digit_sum U_sum_2(.A(bin_2), .B(4'b0000), .carry_in(c_1), .out(aux_next_sum_2), .carry_out());
+    BCD_1_digit_sum U_sum_3(.A(bin_3), .B(4'b0000), .carry_in(c_2), .out(next_sum_3), .carry_out());
+
+    always_comb begin
+        next_sum_2 = (aux_next_sum_2 == 4'b0110) ? 4'b0000 : aux_next_sum_2;
+        c_2 = (aux_next_sum_2 == 4'b0110) ? 1'b1 : 1'b0;
+    end
+
+    // Logic when going down
+
+    logic [3:0] next_neg_0, next_neg_1, next_neg_2, next_neg_3;
+    logic negative_0, negative_1, negative_2, negative_3;
+
+    always_comb begin
+        negative_0 = (bin_0 == 4'b0000);
+        next_neg_0 = negative_0 ? 4'b1001 : bin_0 - 1'b1;
+        negative_1 = (bin_1 == 4'b0000);
+        next_neg_1 = (negative_1 & negative_0) ? 4'b1001 : bin_1 - negative_0;
+        negative_2 = (bin_2 == 4'b0000);
+        next_neg_2 = (negative_2 & negative_1 & negative_0) ? 4'b0101 : bin_2 - (negative_1 & negative_0);
+        negative_3 = (bin_3 == 4'b0000);
+        next_neg_3 = (negative_3 & negative_2 & negative_1 & negative_0) ? 4'b1001 : bin_3 - (negative_2 & negative_1 & negative_0);
+    end
+
+    //BCD_1_digit_sub U_sub_0(.A(bin_0), .B(4'b0001), .out(next_neg_0), .negative(negative_0));
+    //BCD_1_digit_sub U_sub_1(.A(bin_1), .B({3'b000, negative_0}), .out(next_neg_1), .negative(negative_1));
+    //BCD_1_digit_sub U_sub_2(.A(bin_2), .B({3'b000, negative_1}), .out(next_neg_2), .negative(negative_2));
+    //BCD_1_digit_sub U_sub_3(.A(bin_3), .B({3'b000, negative_2}), .out(next_neg_3), .negative());
+
+    always_comb begin
+        next_bin_0 = up ? next_sum_0 : next_neg_0;
+        next_bin_1 = up ? next_sum_1 : next_neg_1;
+        next_bin_2 = up ? next_sum_2 : next_neg_2;
+        next_bin_3 = up ? next_sum_3 : next_neg_3;
+    end
 
 endmodule
 
@@ -79,20 +116,19 @@ module BCD_1_digit_sum(
 
 endmodule
 
-module MOD_6_digit_sum(
-    input logic [2:0] A,
-    input logic [2:0] B,
-    input logic carry_in,
-    output logic [2:0] out,
-    output logic carry_out
+module BCD_1_digit_sub(
+    input logic [3:0] A,
+    input logic [3:0] B,
+    output logic [3:0] out,
+    output logic negative
 );
 
-    logic [3:0] raw_sum;
+    logic [3:0] raw_sub;
 
     always_comb begin
-        raw_sum = A + B + carry_in;
-		  out = (raw_sum >= 3'b110) ? raw_sum - 6 : raw_sum;
-		  carry_out = (raw_sum >= 3'b110) ? 1'b1 : 1'b0;
+        negative = (A < B);
+        raw_sub = A - B;
+        out = negative ? ~(raw_sub) + 1'b1 : raw_sub;
     end
 
 endmodule
